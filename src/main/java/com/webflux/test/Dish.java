@@ -1,8 +1,10 @@
 package com.webflux.test;
 
+import org.springframework.context.annotation.Bean;
+
 import java.util.Objects;
 
-public class Dish {
+class Dish {
 
     private String description;
     private boolean delivered = false;

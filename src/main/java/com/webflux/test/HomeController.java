@@ -24,7 +24,7 @@ public class HomeController {
     Mono<Rendering> home() { // <1>
         return Mono.just(Rendering.view("home.html") // <2>
                 .modelAttribute("items", //
-                        this.itemRepository.findAll()) // <3>
+                        this.itemRepository.findAll().doOnNext(System.out::println)) // <3>
                 .modelAttribute("cart", //
                         this.cartRepository.findById("My Cart") // <4>
                                 .defaultIfEmpty(new Cart("My Cart")))
